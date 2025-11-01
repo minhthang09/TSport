@@ -1,0 +1,152 @@
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:Arial,sans-serif;background:#f4f4f4;}
+/* HEADER */
+header{background:blue;color:white;display:flex;justify-content:space-between;align-items:center;
+padding:15px 40px;position:fixed;top:0;left:0;width:100%;z-index:3000;box-shadow:0 2px 5px rgba(0,0,0,0.3);}
+header h1{font-size:24px;}
+.search-bar input{width:280px;padding:8px 12px;border:none;border-radius:5px;}
+.search-bar button{padding:8px 12px;border:none;background:#ff3c00;color:white;border-radius:5px;cursor:pointer;}
+.search-bar button:hover{background:#e12c00;}
+/* MENU */
+nav{background:#0056d6;display:flex;justify-content:center;position:fixed;top:60px;left:0;width:100%;
+z-index:2500;box-shadow:0 3px 6px rgba(0,0,0,0.2);}
+nav ul{list-style:none;display:flex;}
+nav ul li{position:relative;}
+nav ul li a{display:block;padding:15px 25px;color:white;text-decoration:none;font-weight:bold;text-transform:uppercase;}
+nav ul li a:hover{background:#ff3c00;}
+nav ul li ul{display:none;position:absolute;top:100%;left:0;background:#0056d6;min-width:180px;z-index:9999;
+border-radius:0 0 5px 5px;}
+nav ul li:hover ul{display:block;}
+.content{padding-top:130px;}
+/* CAROUSEL */
+.carousel{position:relative;width:100%;max-width:1000px;height:400px;margin:0 auto 40px;overflow:hidden;border-radius:10px;}
+.slides{display:flex;transition:transform 1.5s ease;}
+.slides img{width:100%;height:400px;object-fit:cover;}
+.prev,.next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.5);color:white;border:none;
+padding:10px 15px;cursor:pointer;font-size:22px;}
+.prev{left:10px;}.next{right:10px;}
+/* SECTION */
+section{padding:40px 20px;text-align:center;background:white;}
+section h2{font-size:26px;margin-bottom:30px;color:#111;text-transform:uppercase;border-bottom:3px solid #ff3c00;
+display:inline-block;padding-bottom:5px;}
+.product-grid{display:flex;justify-content:center;flex-wrap:wrap;gap:30px;margin-top:20px;}
+.product{background:#fff;border-radius:10px;width:320px;box-shadow:0 3px 6px rgba(0,0,0,0.2);transition:transform .3s,box-shadow .3s;position:relative;overflow:hidden;}
+.product:hover{transform:translateY(-8px);box-shadow:0 6px 10px rgba(0,0,0,0.3);}
+.product img{width:100%;height:250px;border-radius:10px 10px 0 0;object-fit:cover;}
+.product h3{font-size:18px;margin:10px 0 5px;}
+.product p{color:#666;margin-bottom:10px;}
+.product button{background:#ff3c00;color:white;border:none;padding:8px 15px;border-radius:5px;cursor:pointer;margin-bottom:15px;}
+.product button:hover{background:#e62e00;}
+.sale-badge{position:absolute;top:10px;left:10px;background:red;color:white;padding:5px 10px;border-radius:5px;font-size:12px;}
+/* PHẦN “BẠN ĐANG CẦN TÌM” */
+#youNeed{background:#fff;}
+.category-grid{display:flex;justify-content:center;flex-wrap:wrap;gap:30px;}
+.category{width:250px;text-align:center;}
+.category img{width:250px;height:160px;object-fit:cover;border-radius:5px;transition:transform .3s;}
+.category img:hover{transform:scale(1.05);}
+.category a{text-decoration:none;color:#0074c9;font-weight:bold;display:block;margin-top:10px;text-transform:uppercase;}
+/* TẤT CẢ SẢN PHẨM (carousel ngang) */
+.all-carousel{position:relative;width:90%;margin:0 auto;overflow:hidden;z-index: 1000;}
+.all-track{display:flex;transition:transform 1s ease;}
+.all-track .product{flex:0 0 250px;margin:0 15px;}
+.all-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.5);color:white;border:none;
+padding:10px 15px;cursor:pointer;font-size:20px;border-radius:50%;z-index: 2000;}
+.all-btn:hover{background:#ff3c00;}
+.all-prev{left:0;}.all-next{right:0;}
+/* POPUP FROM */
+.popup{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);
+justify-content:center;align-items:center;z-index:9999;}
+.popup-content{background:white;padding:25px;border-radius:10px;width:350px;}
+.popup-content input,.popup-content textarea{width:100%;padding:8px;margin:8px 0;border:1px solid #ccc;border-radius:5px;}
+.popup-content button{margin-top:10px;padding:8px 12px;border:none;border-radius:5px;cursor:pointer;font-weight:bold;}
+.popup-content .submit-btn{background:#ff3c00;color:white;}
+.popup-content .close-btn{background:#999;color:white;float:right;}
+footer{background:#111;color:#fff;text-align:center;padding:15px;margin-top:50px;}
+
+
+
+
+
+
+
+/* ===== RESPONSIVE DESIGN ===== */
+/* HAMBURGER MENU */
+.hamburger {
+  display: none; 
+  position: fixed;
+  right: 20px;
+  top: 15px;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+  z-index: 5000; 
+  background: rgba(0,0,0,0.3);
+  padding: 6px 12px;
+  border-radius: 6px;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  nav {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 65px; 
+    left: 0;
+    width: 100%;
+    background: #0056d6;
+    z-index: 3000;
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  nav ul {
+    flex-direction: column;
+  }
+
+  nav ul li a {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+  }
+}
+
+
+@media (max-width: 480px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .search-bar {
+    justify-content: center;
+  }
+
+  .search-bar input {
+    width: 90%;
+  }
+
+  nav {
+    top: 65px;
+    display: none;
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  nav ul {
+    flex-direction: column;
+  }
+
+  .hamburger {
+    display: block;
+    right: 10px;
+    top: 10px;
+  }
+}
